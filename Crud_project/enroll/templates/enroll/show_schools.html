@@ -1,0 +1,33 @@
+{% extends 'enroll/base.html' %}
+
+{% block content %}
+  <h4 class="text-center alert alert-danger">List of Schools</h4>
+
+  {% if schools %}
+  <table class="table caption-top">
+    <caption>List of schools</caption>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for school in schools %}
+      <tr>
+        <th scope="row">{{school.id}}</th>
+        <td>{{school.name}}</td>
+        <td>{{school.address}}</td>
+        <td>{{school.contact}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h4 class="text-center alert alert-Warning">No Schools Found</h4>
+  {% endif %}
+
+  <a href="{% url 'addandshow'  %}" class="btn btn-warning">Back To Home</a>
+{% endblock content %}

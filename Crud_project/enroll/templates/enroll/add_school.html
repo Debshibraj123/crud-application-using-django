@@ -1,0 +1,22 @@
+{% extends 'enroll/base.html' %}
+
+{% block content %}
+
+<h2>Add a School</h2>
+{% comment %} <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add</button>
+</form> {% endcomment %}
+
+<h2>Schools</h2>
+<ul>
+  {% for school in schools %}
+    <li>{{ school.name }}</li>
+  {% endfor %}
+
+</ul>
+
+<a href="{% url 'addandshow'  %}" class="btn btn-warning">Back To Home</a>
+
+{% endblock content %}
